@@ -1,0 +1,21 @@
+class Solution {
+  public:
+    bool validateOp(vector<int>& a, vector<int>& b) {
+        // code here
+        if(a.size()!=b.size())return false;
+        
+        stack<int>st;
+        int j =0;
+        for(int i=0;i<a.size();i++)
+        {
+            st.push(a[i]);
+            
+            while(!st.empty() && st.top()==b[j])
+            {
+                st.pop();
+                j++;
+            }
+        }
+        return (st.empty());
+    }
+};
