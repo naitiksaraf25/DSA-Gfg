@@ -12,13 +12,13 @@ class Solution {
 			if (n % i == 0) {
 				int j = n / i;
 				
-				// i and j must be coprime
-				if (std::gcd(i, j) == 1) {
+				if (gcd(i, j) == 1) {
 					if (i == j) {
-						result += 1; // e.g., x = 5, y = 5 -> pair (5, 5)
+						result += 1;
 					} else {
-						result += 2; // (a, b) and (b, a)
+						result += 2;
 					}
+					
 				}
 			}
 		}
