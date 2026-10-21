@@ -1,20 +1,19 @@
 class Solution {
 	public:
 	int countPairs(vector<string>& arr) {
-		// code here
-		
-		unordered_map<string, int>m;
-		for (auto x:arr) {
-			string temp = x;
-			for (int i = 0; i<temp.size(); i++) {
-				string curr = temp;
-				curr[i] = '*';
-				m[curr]++;
-			}
-		}
 		int ans = 0;
-		for (auto x:m) {
-			ans += ((x.second*(x.second - 1))/2);
+		int n = arr.size();
+		int len = arr[0].size();
+		
+		for (int i = 0; i < len; i++) {
+			unordered_map<string, int> freq;
+			
+			for (int j = 0; j < n; j++) {
+				string s = arr[j];
+				s[i] = '*';
+				ans += freq[s];
+				freq[s]++;
+			}
 		}
 		return ans;
 	}
